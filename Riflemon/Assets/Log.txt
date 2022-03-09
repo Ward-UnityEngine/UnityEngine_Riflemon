@@ -1,3 +1,10 @@
+ToDo:
+learn the new input system 
+skip menu when first time playing the game and go straight to the intro
+save the progression of the game in a way
+
+
+
 Story:
 
 like in the real game, you can choose your pokemon from the 3 starter ones. Then when you have selected it, it gets shot and the mc falls mainly in love with the gun.
