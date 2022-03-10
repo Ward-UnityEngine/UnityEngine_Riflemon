@@ -1,15 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 
 public class KeyListener : MonoBehaviour
 {
     public GameObject[] startObjects;
     public GameObject[]  menuObjects;
+    public RiflemonInput inputActions;
+    private InputAction start;
+
+    private void Awake()
+    {
+        inputActions = new RiflemonInput();
+    }
+
+    private void OnEnable() {
+        start = inputActions.UI.Submit;
+        start.Enable();
+        start.performed += loadMenu;
+    }
+    private void OnDisable()
+    {
+        start.Disable();
+    }
+
 
     private void Start()
     {
+        loadStartMenu();
+    }
+
+    private void loadStartMenu() {
         foreach (GameObject o in startObjects)
         {
             o.SetActive(true);
@@ -20,15 +42,8 @@ public class KeyListener : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            loadMenu();
-        }
-    }
 
-    private void loadMenu()
+    private void loadMenu(InputAction.CallbackContext context)
     {
         foreach( GameObject o in startObjects)
         {
@@ -39,5 +54,7 @@ public class KeyListener : MonoBehaviour
             o2.SetActive(true);
         }
     }
+
+    
 
 }
