@@ -1,5 +1,8 @@
 ToDo:
-learn the new input system 
+
+Make tiles out of the map, cut out trees and other tiles
+
+
 skip menu when first time playing the game and go straight to the intro
 save the progression of the game in a way
 
