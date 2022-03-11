@@ -1,6 +1,6 @@
 ToDo:
 
-Make tiles out of the map, cut out trees and other tiles
+Crop flower tiles to the correct shape, no backdrop included in those tiles
 
 
 skip menu when first time playing the game and go straight to the intro
