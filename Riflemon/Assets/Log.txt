@@ -1,6 +1,7 @@
 ToDo:
 
-Crop flower tiles to the correct shape, no backdrop included in those tiles
+Ge kunt wrs het probleem met voor en achter de bloem te renderen oplossen door sorting layer position af te laten hangen van de hoogte.
+Dan kunt ge een script dat op start alles bepaald voor die dingen laten runnen en voor de player wordt het geupdate na dat de speler heeft bewogen.
 
 
 skip menu when first time playing the game and go straight to the intro
