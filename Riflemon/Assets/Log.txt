@@ -1,7 +1,6 @@
 ToDo:
 
-Animator, transition from left to right movement. Determine direction towards where the velocity is the biggest
-The animations are a bit too slow atm, takes too long for them to initiate
+Slower speed inside rooms, faster speed outside of rooms. Mss met een identifier object. 
 
 
 skip menu when first time playing the game and go straight to the intro

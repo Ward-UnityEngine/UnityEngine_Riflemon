@@ -11,6 +11,8 @@ public class PlayerBehaviour : MonoBehaviour
     private InputAction move;
     private Animator playerAnimator;
 
+    public bool goingUp; //variable to check in other scripts
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -28,6 +30,7 @@ public class PlayerBehaviour : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 value = move.ReadValue<Vector2>();
+        goingUp = value.y > 0.1f; //going up when opening doors
         animate(value);
         rb.velocity = value.normalized * movementSpeed;
     }
