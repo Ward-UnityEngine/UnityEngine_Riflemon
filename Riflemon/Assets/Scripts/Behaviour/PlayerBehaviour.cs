@@ -12,6 +12,7 @@ public class PlayerBehaviour : MonoBehaviour
     private Animator playerAnimator;
 
     public bool goingUp; //variable to check in other scripts
+    public bool goingDown;
 
     private void Awake()
     {
@@ -31,6 +32,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         Vector2 value = move.ReadValue<Vector2>();
         goingUp = value.y > 0.1f; //going up when opening doors
+        goingDown = value.y < -0.1f;//going down through doors
         animate(value);
         rb.velocity = value.normalized * movementSpeed;
     }

@@ -1,7 +1,8 @@
 ToDo:
 
 Slower speed inside rooms, faster speed outside of rooms. Mss met een identifier object. 
-
+Scene loader die niet verwijderd wordt en die mee gaat met al de scenes en dan opslaagt van welke positie dat ge komt, zo kunt ge in verschillende lagen binnen in huizen gaan en er terug buiten gaan.
+Onthoudt dan ook of de snelheid van het character naar beneden gehaald moet worden. 
 
 skip menu when first time playing the game and go straight to the intro
 save the progression of the game in a way

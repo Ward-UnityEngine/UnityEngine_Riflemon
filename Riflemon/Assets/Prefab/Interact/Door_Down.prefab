@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6363961130368726983}
   m_Layer: 0
-  m_Name: Door
+  m_Name: Door_Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 3227160820544461680}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: -1, z: 1}
   m_Children:
   - {fileID: 8953421095134562828}
   - {fileID: 2645994486548483803}
@@ -184,7 +184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2645994486548483803}
   - component: {fileID: 4623406150779401806}
-  - component: {fileID: 1332839838844882375}
+  - component: {fileID: 4643056543226952476}
   m_Layer: 0
   m_Name: Door_Opener (1)
   m_TagString: Untagged
@@ -232,7 +232,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.5020772}
   m_EdgeRadius: 0
---- !u!114 &1332839838844882375
+--- !u!114 &4643056543226952476
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -241,7 +241,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5763749945695817312}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3b5b7dbe6af4314fa282a1bac8c8027, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b8595661f84fac4daa1b21e7c99d38d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetSceneIndex: 2
