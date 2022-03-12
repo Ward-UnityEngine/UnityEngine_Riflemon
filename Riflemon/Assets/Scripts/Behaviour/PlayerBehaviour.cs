@@ -35,7 +35,19 @@ public class PlayerBehaviour : MonoBehaviour
     private void animate(Vector2 dir)
     {
         playerAnimator.SetFloat("Speed", rb.velocity.magnitude);
-        playerAnimator.SetFloat("X_dir", dir.x);
-        playerAnimator.SetFloat("Y_dir", dir.y);
+
+           
+        if(Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
+        {
+            //moving on the x-axis
+            playerAnimator.SetFloat("X_dir", dir.x);
+            playerAnimator.SetFloat("Y_dir", 0);
+        }
+        else
+        {
+            playerAnimator.SetFloat("Y_dir", dir.y);
+            playerAnimator.SetFloat("X_dir", 0);
+        }
+        
     }
 }
