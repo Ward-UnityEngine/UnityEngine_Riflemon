@@ -1,13 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 public class Door_Opener_Down : MonoBehaviour
 {
     public int targetSceneIndex;
     private PlayerBehaviour playerBehaviour;
+    private SceneLoader sceneLoader;
 
+    private void Awake()
+    {
+        sceneLoader = GetComponent<SceneLoader>();
+    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -15,7 +20,7 @@ public class Door_Opener_Down : MonoBehaviour
         {
             playerBehaviour = collision.GetComponent<PlayerBehaviour>();
             if (playerBehaviour.goingDown)
-                SceneManager.LoadScene(targetSceneIndex);
+                sceneLoader.loadScene(targetSceneIndex);
         }
     }
 }

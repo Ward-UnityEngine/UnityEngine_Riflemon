@@ -185,6 +185,7 @@ GameObject:
   - component: {fileID: 2645994486548483803}
   - component: {fileID: 4623406150779401806}
   - component: {fileID: 1332839838844882375}
+  - component: {fileID: 3939265529430750602}
   m_Layer: 0
   m_Name: Door_Opener (1)
   m_TagString: Untagged
@@ -245,3 +246,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSceneIndex: 2
+--- !u!114 &3939265529430750602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5763749945695817312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 912040073896f1c46aefc898da93e494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goesToInside: 1
+  nextDir: {x: 0, y: 1}
+  goingDeeper: 1

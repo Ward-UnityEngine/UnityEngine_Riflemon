@@ -961,6 +961,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door
       objectReference: {fileID: 0}
+    - target: {fileID: 3939265529430750602, guid: c6bf205c20b11ca468b9f539ccb5f00b, type: 3}
+      propertyPath: nextDir.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3939265529430750602, guid: c6bf205c20b11ca468b9f539ccb5f00b, type: 3}
+      propertyPath: nextPos.x
+      value: 7.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 3939265529430750602, guid: c6bf205c20b11ca468b9f539ccb5f00b, type: 3}
+      propertyPath: nextPos.y
+      value: 0.934
+      objectReference: {fileID: 0}
     - target: {fileID: 6363961130368726983, guid: c6bf205c20b11ca468b9f539ccb5f00b, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2422,6 +2434,14 @@ PrefabInstance:
     - target: {fileID: 3227160820544461680, guid: 8a5b6f5999f1db34fabd86e39698ba8e, type: 3}
       propertyPath: m_Name
       value: Door_Down
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613062662435785446, guid: 8a5b6f5999f1db34fabd86e39698ba8e, type: 3}
+      propertyPath: nextPos.x
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613062662435785446, guid: 8a5b6f5999f1db34fabd86e39698ba8e, type: 3}
+      propertyPath: nextPos.y
+      value: 1.66
       objectReference: {fileID: 0}
     - target: {fileID: 4643056543226952476, guid: 8a5b6f5999f1db34fabd86e39698ba8e, type: 3}
       propertyPath: targetSceneIndex

@@ -1,0 +1,9 @@
+World1:
+-door green house in first town: -1.5,1.66
+
+House 1L:
+-bottom door: 8.04,-4.36
+-door to upstairs: 7.52,0.95
+
+House 1U:
+-door: 7.53,0.934

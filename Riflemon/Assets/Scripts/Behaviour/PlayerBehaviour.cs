@@ -7,12 +7,16 @@ public class PlayerBehaviour : MonoBehaviour
 {
     private Rigidbody2D rb;
     public RiflemonInput inputActions;
-    public float movementSpeed;
     private InputAction move;
     private Animator playerAnimator;
 
     public bool goingUp; //variable to check in other scripts
     public bool goingDown;
+
+    private float movementSpeed;
+    public float movementSpeedOutside;
+    public float movementSpeedInside;
+
 
     private void Awake()
     {
@@ -25,6 +29,20 @@ public class PlayerBehaviour : MonoBehaviour
         inputActions = new RiflemonInput();
         move = inputActions.Player.Move;
         move.Enable();
+    }
+
+    private void Start()
+    {
+        //initiaize begin position
+        BeginConditions beginConditions = Game_Manager.loadBeginConditions();
+        if (beginConditions != null)
+        {
+            rb.transform.position = beginConditions.getBeginposition();
+            if (beginConditions.getIsInside()) movementSpeed = movementSpeedInside;
+            else movementSpeed = movementSpeedOutside;
+            rb.velocity = beginConditions.getBeginDirection();
+        }
+        else movementSpeed = movementSpeedOutside;
     }
 
 

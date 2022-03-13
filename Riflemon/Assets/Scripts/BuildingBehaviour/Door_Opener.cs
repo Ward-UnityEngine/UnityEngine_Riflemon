@@ -7,7 +7,12 @@ public class Door_Opener : MonoBehaviour
 {
     public int targetSceneIndex;
     private PlayerBehaviour playerBehaviour;
+    private SceneLoader sceneLoader;
 
+    private void Awake()
+    {
+        sceneLoader = GetComponent<SceneLoader>();
+    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -15,7 +20,7 @@ public class Door_Opener : MonoBehaviour
         {
             playerBehaviour = collision.GetComponent<PlayerBehaviour>();
             if(playerBehaviour.goingUp)
-                SceneManager.LoadScene(targetSceneIndex);
+                sceneLoader.loadScene(targetSceneIndex);
         }
     }
 }
