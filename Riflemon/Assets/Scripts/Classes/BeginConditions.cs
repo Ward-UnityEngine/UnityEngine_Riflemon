@@ -11,6 +11,7 @@ public class BeginConditions
     public BeginConditions(Vector2 beginPosition, Vector2 beginDirection,bool isInside)
     {
         this.beginPosition = beginPosition;
+        this.beginDirection = beginDirection;
         this.isInside = isInside;
     }
 

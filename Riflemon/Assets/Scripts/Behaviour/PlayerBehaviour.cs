@@ -46,21 +46,29 @@ public class PlayerBehaviour : MonoBehaviour
             rb.transform.position = beginConditions.getBeginposition();
             if (beginConditions.getIsInside()) movementSpeed = movementSpeedInside;
             else movementSpeed = movementSpeedOutside;
-            rb.velocity = beginConditions.getBeginDirection();
-            animate(beginConditions.getBeginDirection());
+            animateBegin(beginConditions.getBeginDirection());
         }
         else movementSpeed = movementSpeedOutside;
+    }
+
+    private void animateBegin(Vector2 beginDirection)
+    {
+        playerAnimator.SetFloat("Speed", 0);
+        playerAnimator.SetFloat("Y_dir", beginDirection.y);
+        playerAnimator.SetFloat("X_dir", 0);
     }
 
 
     private void FixedUpdate()
     {
-       
-        Vector2 value = move.ReadValue<Vector2>();
-        goingUp = value.y > 0.1f; //going up when opening doors
-        goingDown = value.y < -0.1f;//going down through doors
-        animate(value);
-        rb.velocity = value.normalized * movementSpeed;
+        if (move.enabled)
+        {
+            Vector2 value = move.ReadValue<Vector2>();
+                goingUp = value.y > 0.1f; //going up when opening doors
+            goingDown = value.y < -0.1f;//going down through doors
+            animate(value);
+            rb.velocity = value.normalized * movementSpeed;
+        }
         
     }
 

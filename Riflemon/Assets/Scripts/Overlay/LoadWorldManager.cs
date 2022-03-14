@@ -30,7 +30,6 @@ public class LoadWorldManager : MonoBehaviour
 
     public void loadIsDone(string bool_name)
     {
-        Debug.Log(bool_name);
         animator.SetBool(bool_name, false);
         enablePlayer();
     }
