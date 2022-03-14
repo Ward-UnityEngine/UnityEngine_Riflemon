@@ -168,7 +168,7 @@ MonoBehaviour:
   goingUp: 0
   goingDown: 0
   movementSpeedOutside: 8
-  movementSpeedInside: 2
+  movementSpeedInside: 4
 --- !u!114 &331556182613950613
 MonoBehaviour:
   m_ObjectHideFlags: 0

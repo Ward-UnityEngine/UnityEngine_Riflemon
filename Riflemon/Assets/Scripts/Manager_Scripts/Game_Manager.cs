@@ -13,10 +13,6 @@ public class Game_Manager : MonoBehaviour
     {
         beginCond = beginConditions;
     }
-    private void Awake()
-    {
-        GameObject.DontDestroyOnLoad(this.gameObject);
-    }
 
     public static void loadScene(BeginConditions beginConditions, int nextScene)
     {
@@ -27,5 +23,11 @@ public class Game_Manager : MonoBehaviour
     public static BeginConditions loadBeginConditions()
     {
         return beginCond;
+    }
+    public static bool getToWorld()
+    {
+        if (beginCond != null)
+            return !beginCond.getIsInside();
+        else return true;
     }
 }

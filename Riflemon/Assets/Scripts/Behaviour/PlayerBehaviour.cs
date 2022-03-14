@@ -22,12 +22,18 @@ public class PlayerBehaviour : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
+        
     }
 
     private void OnEnable()
     {
         inputActions = new RiflemonInput();
         move = inputActions.Player.Move;
+    }
+
+    public void enableInput()
+    {
+        
         move.Enable();
     }
 
@@ -41,6 +47,7 @@ public class PlayerBehaviour : MonoBehaviour
             if (beginConditions.getIsInside()) movementSpeed = movementSpeedInside;
             else movementSpeed = movementSpeedOutside;
             rb.velocity = beginConditions.getBeginDirection();
+            animate(beginConditions.getBeginDirection());
         }
         else movementSpeed = movementSpeedOutside;
     }
@@ -48,11 +55,13 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
+       
         Vector2 value = move.ReadValue<Vector2>();
         goingUp = value.y > 0.1f; //going up when opening doors
         goingDown = value.y < -0.1f;//going down through doors
         animate(value);
         rb.velocity = value.normalized * movementSpeed;
+        
     }
 
     private void animate(Vector2 dir)
