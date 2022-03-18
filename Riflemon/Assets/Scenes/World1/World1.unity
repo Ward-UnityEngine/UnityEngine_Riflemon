@@ -11255,6 +11255,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 610870004}
     m_Modifications:
+    - target: {fileID: 6825905199876567248, guid: dad46963a5addc34685ae3d52d874ac9, type: 3}
+      propertyPath: targetSceneIndex
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8187349696284425286, guid: dad46963a5addc34685ae3d52d874ac9, type: 3}
       propertyPath: m_Name
       value: House_Village1 (1)
@@ -11302,6 +11306,14 @@ PrefabInstance:
     - target: {fileID: 8187349696284425291, guid: dad46963a5addc34685ae3d52d874ac9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8822089291428382877, guid: dad46963a5addc34685ae3d52d874ac9, type: 3}
+      propertyPath: nextPos.x
+      value: -1.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 8822089291428382877, guid: dad46963a5addc34685ae3d52d874ac9, type: 3}
+      propertyPath: nextPos.y
+      value: -4.32
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dad46963a5addc34685ae3d52d874ac9, type: 3}
@@ -12085,17 +12097,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 610870004}
     m_Modifications:
+    - target: {fileID: 478113857428498727, guid: 5e9d0fa2477e2fd428dae473340a8cf1, type: 3}
+      propertyPath: targetSceneIndex
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2483381014433894762, guid: 5e9d0fa2477e2fd428dae473340a8cf1, type: 3}
       propertyPath: nextDir.y
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2483381014433894762, guid: 5e9d0fa2477e2fd428dae473340a8cf1, type: 3}
       propertyPath: nextPos.x
-      value: 8.04
+      value: 1.12
       objectReference: {fileID: 0}
     - target: {fileID: 2483381014433894762, guid: 5e9d0fa2477e2fd428dae473340a8cf1, type: 3}
       propertyPath: nextPos.y
-      value: -4.36
+      value: -5.44
       objectReference: {fileID: 0}
     - target: {fileID: 2483381014433894762, guid: 5e9d0fa2477e2fd428dae473340a8cf1, type: 3}
       propertyPath: goingDeeper
@@ -12378,6 +12394,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 610870004}
     m_Modifications:
+    - target: {fileID: 6825905199876567248, guid: dad46963a5addc34685ae3d52d874ac9, type: 3}
+      propertyPath: targetSceneIndex
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8187349696284425286, guid: dad46963a5addc34685ae3d52d874ac9, type: 3}
       propertyPath: m_Name
       value: House_Village1
@@ -12425,6 +12445,14 @@ PrefabInstance:
     - target: {fileID: 8187349696284425291, guid: dad46963a5addc34685ae3d52d874ac9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8822089291428382877, guid: dad46963a5addc34685ae3d52d874ac9, type: 3}
+      propertyPath: nextPos.x
+      value: 8.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 8822089291428382877, guid: dad46963a5addc34685ae3d52d874ac9, type: 3}
+      propertyPath: nextPos.y
+      value: -4.36
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dad46963a5addc34685ae3d52d874ac9, type: 3}
