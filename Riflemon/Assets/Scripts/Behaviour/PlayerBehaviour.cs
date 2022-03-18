@@ -8,10 +8,14 @@ public class PlayerBehaviour : MonoBehaviour
     private Rigidbody2D rb;
     public RiflemonInput inputActions;
     private InputAction move;
+    private InputAction interact;
     private Animator playerAnimator;
 
     public bool goingUp; //variable to check in other scripts
     public bool goingDown;
+    private bool interactPressed;
+    public bool interactActive;
+    public bool interactOld;
 
     private float movementSpeed;
     public float movementSpeedOutside;
@@ -29,12 +33,15 @@ public class PlayerBehaviour : MonoBehaviour
     {
         inputActions = new RiflemonInput();
         move = inputActions.Player.Move;
+        interact = inputActions.Player.Interact;
     }
 
     public void enableInput()
     {
         
         move.Enable();
+        if(!interact.enabled)
+            interact.Enable();
     }
 
     private void Start()
@@ -68,8 +75,26 @@ public class PlayerBehaviour : MonoBehaviour
             goingDown = value.y < -0.1f;//going down through doors
             animate(value);
             rb.velocity = value.normalized * movementSpeed;
+
+           
         }
         
+    }
+
+    private void Update()
+    {
+        setInteractButton();
+    }
+
+    private void setInteractButton()
+    {
+        interactOld = interactActive;
+        interactActive = interact.ReadValue<float>() > 0.1f;
+        if(interactActive && !interactOld)
+        {
+            //was pressed
+            interactPressed = true;
+        }
     }
 
     private void animate(Vector2 dir)
@@ -89,5 +114,16 @@ public class PlayerBehaviour : MonoBehaviour
             playerAnimator.SetFloat("X_dir", 0);
         }
         
+    }
+
+    public bool getInteractive()
+    {
+        if (interactPressed)
+        {
+            bool temp = interactPressed;
+            interactPressed = false;
+            return temp;
+        }
+        else return false;
     }
 }

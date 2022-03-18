@@ -1,5 +1,6 @@
 ToDo:
 
+We kunnen al 1 ding weergeven als tekst over het spel over. Als \m wordt gebruikt dan moet het in een nieuwe string gestoken worden en dan gaan we string per string weergeven in de tekst balk
 dozen kunt ge kapot maken
 skip menu when first time playing the game and go straight to the intro
 save the progression of the game in a way
