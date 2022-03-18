@@ -1,7 +1,5 @@
 ToDo:
 
-Animation and pauzation of user input when entering or leaving a room
-
 skip menu when first time playing the game and go straight to the intro
 save the progression of the game in a way
 
