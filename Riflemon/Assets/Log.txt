@@ -1,5 +1,6 @@
 ToDo:
 
+dozen kunt ge kapot maken
 skip menu when first time playing the game and go straight to the intro
 save the progression of the game in a way
 
