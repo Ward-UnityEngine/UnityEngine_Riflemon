@@ -124,17 +124,18 @@ public class DialogBorderBehaviour : MonoBehaviour
         for(int x = 1;x<text[displayIndex].Length;x++)
         {
             char next = text[displayIndex][x];
-            if(next == '|')
+            if (next == '|')
             {
                 //finished
                 if (stringBuilder.ToString().Contains("timedramatic"))
                 {
                     currentTextRevealInterval = dramaticTextRevealInterval;
-                    text[displayIndex] = text[displayIndex].Remove(0, x);
+                    text[displayIndex] = text[displayIndex].Remove(0, x+1);
                     return true;
                 }
             }
             stringBuilder.Append(next);
+            
         }
         return false;
     }
