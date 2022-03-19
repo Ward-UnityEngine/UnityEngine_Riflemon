@@ -6,7 +6,8 @@ using TMPro;
 public class DialogBorderBehaviour : MonoBehaviour
 {
     private PlayerBehaviour playerBehaviour;
-    string text = string.Empty;
+    private string[] text;
+    private int displayIndex = 0;
 
     private TextMeshProUGUI textUI;
     private Coroutine revealingCoroutine;
@@ -14,6 +15,7 @@ public class DialogBorderBehaviour : MonoBehaviour
     private OverlayStarter overlayStarter;
 
     public float textRevealInterval;
+    public int maxLenString;
 
     private void Awake()
     {
@@ -28,23 +30,74 @@ public class DialogBorderBehaviour : MonoBehaviour
             {
                 StopCoroutine(revealingCoroutine);
                 coroutineRunning = false;
-                textUI.text = text;
+                textUI.text = text[displayIndex];
             }
             else
             {
-                end_dialog();
+                if(displayIndex>=(text.Length-1))
+                    end_dialog();
+                else
+                {
+                    //display next sentence
+                    displayIndex++;
+                    revealingCoroutine = StartCoroutine("revealText");
+                }
             }
         }
     }
 
-    public void start_dialog(PlayerBehaviour playerBehaviour,string targetText,OverlayStarter overlayStarter)
+    public void start_dialog(PlayerBehaviour playerBehaviour,string[] targetText,OverlayStarter overlayStarter)
     {
         Time.timeScale = 0;
         this.playerBehaviour = playerBehaviour;
-        this.text = targetText.Replace("\\n", "\n"); ;
+        this.text = computeStringArray(targetText);
         this.overlayStarter = overlayStarter;
         textUI.text = "";
         revealingCoroutine = StartCoroutine("revealText");
+    }
+
+    private string[] computeStringArray(string[] array)
+    {
+        List<string> result = new List<string>(array.Length);
+        for(int x = 0; x<array.Length;x++)
+        {
+            array[x].Replace("\\n", "\n");
+            while (array[x].Length > maxLenString)
+            {
+                int splitPos = findSplitPosition(array,x);
+                if (splitPos == -1)
+                {
+                    //no split pos
+                    result.Add(array[x].Substring(0, maxLenString));
+                    array[x] = array[x].Remove(0, maxLenString);
+                }
+                else
+                {
+                    result.Add(array[x].Substring(0, splitPos));
+                    array[x] = array[x].Remove(0, splitPos);
+                }
+            }
+            result.Add(array[x]);
+        }
+        return result.ToArray();
+        
+    }
+
+    private int findSplitPosition(string[] array,int x)
+    {
+        //split into multiple strings
+        int index = maxLenString - 1;
+        while ((array[x])[index] != ' ')
+        {
+            index--;
+            if (index < 1)
+            {
+                //we won't be able to split based on spaces
+                return -1;
+            }
+        }
+        index++;
+        return index;
     }
 
     private void end_dialog()
@@ -56,10 +109,12 @@ public class DialogBorderBehaviour : MonoBehaviour
 
     private IEnumerator revealText()
     {
+        Debug.Log(text.Length);
         coroutineRunning = true;
-        for(int x = 0; x<text.Length;x++)
+        textUI.text = "";
+        for(int x = 0; x<text[displayIndex].Length;x++)
         {
-            textUI.text += text[x];
+            textUI.text += text[displayIndex][x];
             yield return new WaitForSecondsRealtime(textRevealInterval);
         }
         coroutineRunning = false;

@@ -166,7 +166,7 @@ Transform:
   - {fileID: 828480030}
   - {fileID: 812944702}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &133459019
 GameObject:
@@ -222,7 +222,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &812944701
 GameObject:
@@ -1879,6 +1879,14 @@ PrefabInstance:
     - target: {fileID: 57169894937664008, guid: 03c6dcbf2dc0a5c4186fff4f59add0e0, type: 3}
       propertyPath: text
       value: i send some shots at yo fitted gratata swag bitch
+      objectReference: {fileID: 0}
+    - target: {fileID: 57169894937664008, guid: 03c6dcbf2dc0a5c4186fff4f59add0e0, type: 3}
+      propertyPath: text.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 57169894937664008, guid: 03c6dcbf2dc0a5c4186fff4f59add0e0, type: 3}
+      propertyPath: text.Array.data[0]
+      value: That fufu lame shit I ain't widdit gratata
       objectReference: {fileID: 0}
     - target: {fileID: 4580563983771779254, guid: 03c6dcbf2dc0a5c4186fff4f59add0e0, type: 3}
       propertyPath: m_Size.x

@@ -372,6 +372,14 @@ PrefabInstance:
       propertyPath: text
       value: Laboratory owned by Professor Berk
       objectReference: {fileID: 0}
+    - target: {fileID: 6666306061782053302, guid: 8858c1de480dc4e4181c6e75dc05d2bc, type: 3}
+      propertyPath: text.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666306061782053302, guid: 8858c1de480dc4e4181c6e75dc05d2bc, type: 3}
+      propertyPath: text.Array.data[0]
+      value: Laboratory owned by Professor Berk
+      objectReference: {fileID: 0}
     - target: {fileID: 8631985454565235747, guid: 8858c1de480dc4e4181c6e75dc05d2bc, type: 3}
       propertyPath: text
       value: Laboratory \nProfessor Berk
@@ -445,6 +453,80 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5238422952178970390, guid: 9d87fea5a38bb714f9ac50fae47387d0, type: 3}
   m_PrefabInstance: {fileID: 2599611747501485231}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &346180285
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 346180288}
+  - component: {fileID: 346180287}
+  - component: {fileID: 346180286}
+  m_Layer: 0
+  m_Name: Interrupt_Dialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!114 &346180286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346180285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4a48e5003948f4993a8ba487b4d9de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text:
+  - Sentence 1
+  - Sentence 2
+  - abcdefghijklmnopqrstuvwxyekieiei!iijfeioiowejfiwfjoiwjfijiiesojfwifojejfiewjfoowoooooiwejfiewjfjffejeifjiejifieiikdkkdkdkdkkdkkdkdkdkklsjflaeifjselfjeasijfijnviiavljlesf;filaj;sn
+--- !u!61 &346180287
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346180285}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.5737073, y: 1}
+  m_EdgeRadius: 0
+--- !u!4 &346180288
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346180285}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.86, y: 11.44, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &401685017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11734,6 +11816,14 @@ PrefabInstance:
       propertyPath: text
       value: Home Sweet Home
       objectReference: {fileID: 0}
+    - target: {fileID: 6666306061782053302, guid: 8858c1de480dc4e4181c6e75dc05d2bc, type: 3}
+      propertyPath: text.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666306061782053302, guid: 8858c1de480dc4e4181c6e75dc05d2bc, type: 3}
+      propertyPath: text.Array.data[0]
+      value: Home Sweet Home
+      objectReference: {fileID: 0}
     - target: {fileID: 8631985454565235747, guid: 8858c1de480dc4e4181c6e75dc05d2bc, type: 3}
       propertyPath: text
       value: Home
@@ -12815,6 +12905,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign_Village
       objectReference: {fileID: 0}
+    - target: {fileID: 6666306061782053302, guid: 8858c1de480dc4e4181c6e75dc05d2bc, type: 3}
+      propertyPath: text.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666306061782053302, guid: 8858c1de480dc4e4181c6e75dc05d2bc, type: 3}
+      propertyPath: text.Array.data[0]
+      value: Markel Family
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8858c1de480dc4e4181c6e75dc05d2bc, type: 3}
 --- !u!1001 &2599611747501485231
@@ -13123,6 +13221,14 @@ PrefabInstance:
     - target: {fileID: 4425244415252852539, guid: bd85bf49101ed404c9cec54757fa04cc, type: 3}
       propertyPath: m_Name
       value: UI_Canvasses
+      objectReference: {fileID: 0}
+    - target: {fileID: 6104477239112637355, guid: bd85bf49101ed404c9cec54757fa04cc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6104477240029995925, guid: bd85bf49101ed404c9cec54757fa04cc, type: 3}
+      propertyPath: m_text
+      value: abcdefghijklmnopqrstuvwxyekieiei!iijfeioiowejfiwfjoiwjfijiiesojfwifojejfiewjfoowoooooiwejfiewjfjffejeifjiejifieii
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd85bf49101ed404c9cec54757fa04cc, type: 3}

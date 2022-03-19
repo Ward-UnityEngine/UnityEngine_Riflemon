@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textRevealInterval: 0.08
+  maxLenString: 113
 --- !u!1 &2105450679592306059
 GameObject:
   m_ObjectHideFlags: 0

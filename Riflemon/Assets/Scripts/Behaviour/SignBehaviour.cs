@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SignBehaviour : MonoBehaviour
 {
-    public string text;
+    public string[] text;
     OverlayStarter overlay;
 
     private BoxCollider2D colliderObj;
@@ -22,11 +22,13 @@ public class SignBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        playerBehaviour = collision.gameObject.GetComponent<PlayerBehaviour>();
+        if (collision.CompareTag("Player_tag"))
+            playerBehaviour = collision.gameObject.GetComponent<PlayerBehaviour>();
 
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
+
         if (collision.CompareTag("Player_tag"))
         {
             if(playerBehaviour.getInteractive() && !overlay.overlayActive)
