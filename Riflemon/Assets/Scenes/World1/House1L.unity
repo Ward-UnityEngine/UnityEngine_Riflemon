@@ -874,6 +874,14 @@ PrefabInstance:
       propertyPath: text
       value: BEEP BOOP BEEP BOOP
       objectReference: {fileID: 0}
+    - target: {fileID: 57169894937664008, guid: 03c6dcbf2dc0a5c4186fff4f59add0e0, type: 3}
+      propertyPath: text.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 57169894937664008, guid: 03c6dcbf2dc0a5c4186fff4f59add0e0, type: 3}
+      propertyPath: text.Array.data[0]
+      value: BEEP BOOP BEEP BOOP
+      objectReference: {fileID: 0}
     - target: {fileID: 6012186610216779366, guid: 03c6dcbf2dc0a5c4186fff4f59add0e0, type: 3}
       propertyPath: m_Name
       value: Interact_Trigger
