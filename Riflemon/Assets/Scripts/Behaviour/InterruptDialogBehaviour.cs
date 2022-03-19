@@ -19,6 +19,7 @@ public class InterruptDialogBehaviour : MonoBehaviour
         {
             playerBehaviour = collision.gameObject.GetComponent<PlayerBehaviour>();
             overlayStarter.startDialogBorder(playerBehaviour, text);
+            GameObject.Destroy(this.gameObject);
         }
     }
 }
