@@ -1,6 +1,8 @@
 ToDo:
 
-We kunnen al 1 ding weergeven als tekst over het spel over. Als \m wordt gebruikt dan moet het in een nieuwe string gestoken worden en dan gaan we string per string weergeven in de tekst balk
+Still need to add GunBehaviour to player and figure out how to select the current gun.
+Than the bullets should be able to be instantiated with the gunbehaviour function wantsToShoot
+
 dozen kunt ge kapot maken
 skip menu when first time playing the game and go straight to the intro
 save the progression of the game in a way

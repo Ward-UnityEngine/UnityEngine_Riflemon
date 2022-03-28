@@ -11,6 +11,7 @@ public class PlayerBehaviour : MonoBehaviour
     private InputAction interact;
     private Animator playerAnimator;
 
+
     public bool goingUp; //variable to check in other scripts
     public bool goingDown;
     private bool interactPressed;
