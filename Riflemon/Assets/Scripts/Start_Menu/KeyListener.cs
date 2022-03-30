@@ -8,21 +8,14 @@ public class KeyListener : MonoBehaviour
     public GameObject[] startObjects;
     public GameObject[]  menuObjects;
     public RiflemonInput inputActions;
-    private InputAction start;
+   
 
-    private void Awake()
+    private void Update()
     {
-        inputActions = new RiflemonInput();
-    }
-
-    private void OnEnable() {
-        start = inputActions.UI.Submit;
-        start.Enable();
-        start.performed += loadMenu;
-    }
-    private void OnDisable()
-    {
-        start.Disable();
+        if(Keyboard.current.anyKey.isPressed || Gamepad.current.aButton.isPressed)
+        {
+            loadMenu();
+        }
     }
 
 
@@ -43,7 +36,7 @@ public class KeyListener : MonoBehaviour
     }
 
 
-    private void loadMenu(InputAction.CallbackContext context)
+    private void loadMenu()
     {
         foreach( GameObject o in startObjects)
         {

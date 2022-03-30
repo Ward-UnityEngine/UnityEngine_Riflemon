@@ -18,10 +18,7 @@ public class Main_Menu_Listener : MonoBehaviour
     private MyButton[] buttons;
     private int activeButton = 0;
 
-    private bool buttonPressed = true;
-    private bool spacePressed = true;
 
-    private bool buttonsAreSetup = false;
 
     private void Awake()
     {
@@ -111,8 +108,7 @@ public class Main_Menu_Listener : MonoBehaviour
 
     private void navigateMainMenu(InputAction.CallbackContext context)
     {
-        if (buttonPressed) //so that we only register button being released and not it being pressed and released or something. Seems like a bug imo tbh
-        {
+        
             Vector2 nav = context.ReadValue<Vector2>();
             buttons[activeButton].highlight(false);
             if (nav.y < -0.5f)
@@ -133,17 +129,14 @@ public class Main_Menu_Listener : MonoBehaviour
                 }
             }
             buttons[activeButton].highlight(true);
-        }
-        buttonPressed =  !buttonPressed;
+       
         
     }
 
     private void clickOnButton(InputAction.CallbackContext context)
     {
-        if (spacePressed)
-        {
+        
             buttons[activeButton].click();
-        }
-        spacePressed = !spacePressed;
+        
     }
 }
