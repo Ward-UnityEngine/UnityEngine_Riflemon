@@ -23,10 +23,14 @@ public class PlayerBehaviour : MonoBehaviour
     public bool interactActive;
     public bool interactOld;
     private bool isInside = false;
+    private Vector2 facingDirection;
+    private Vector2 diagonalFacing;
 
     private float movementSpeed;
     public float movementSpeedOutside;
     public float movementSpeedInside;
+    public int diagonalLatency;
+    private int diagonalLatencyCounter;
 
 
     private void Awake()
@@ -96,6 +100,34 @@ public class PlayerBehaviour : MonoBehaviour
             animate(value);
             rb.velocity = value.normalized * movementSpeed;
 
+            bool xAxis = Mathf.Abs(value.x) > 0.1f;
+            bool yAxis = Mathf.Abs(value.y) > 0.1f;
+            if (xAxis && yAxis)
+            {
+                diagonalLatencyCounter = 0;
+                facingDirection = value;
+                diagonalFacing = value;
+            }
+            else
+            {
+                if (xAxis || yAxis)
+                {
+                    
+                    facingDirection = value;
+                    Debug.Log(facingDirection);
+
+                }
+                else
+                {
+                    if(diagonalLatencyCounter < diagonalLatency)
+                    {
+                        //user wanted to stay diagonal
+                        facingDirection = diagonalFacing;
+                    }
+                }
+                if(diagonalLatencyCounter < diagonalLatency)
+                    diagonalLatencyCounter++;
+            }
            
         }
         
@@ -140,7 +172,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (gunHandlerBehaviour != null)
         {
-            gunHandlerBehaviour.shoot(Vector2.left);
+            gunHandlerBehaviour.shoot(facingDirection);
         }
     }
 

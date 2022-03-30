@@ -12662,6 +12662,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 331556182613950612, guid: de209e4439e855244830bd0ada4614e7, type: 3}
+      propertyPath: diagonalLatency
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de209e4439e855244830bd0ada4614e7, type: 3}
 --- !u!1001 &624479328285181176
