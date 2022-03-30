@@ -9,8 +9,9 @@ public class MiddleGround_Sorting : MonoBehaviour
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+
     }
-    private void Start()
+    private void OnEnable()
     {
         spriteRenderer.sortingOrder = -Mathf.RoundToInt(this.transform.position.y * 1000f);
     }

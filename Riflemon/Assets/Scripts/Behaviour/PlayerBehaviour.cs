@@ -5,11 +5,16 @@ using UnityEngine.InputSystem;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    
     public RiflemonInput inputActions;
     private InputAction move;
     private InputAction interact;
+    private InputAction shoot;
+
+
+    private Rigidbody2D rb;
     private Animator playerAnimator;
+    private GunHandlerBehaviour gunHandlerBehaviour;
 
 
     public bool goingUp; //variable to check in other scripts
@@ -17,6 +22,7 @@ public class PlayerBehaviour : MonoBehaviour
     private bool interactPressed;
     public bool interactActive;
     public bool interactOld;
+    private bool isInside = false;
 
     private float movementSpeed;
     public float movementSpeedOutside;
@@ -27,6 +33,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
+        gunHandlerBehaviour = GetComponentInChildren<GunHandlerBehaviour>();
         
     }
 
@@ -35,12 +42,23 @@ public class PlayerBehaviour : MonoBehaviour
         inputActions = new RiflemonInput();
         move = inputActions.Player.Move;
         interact = inputActions.Player.Interact;
+        shoot = inputActions.Player.Fire;
     }
 
     public void enableInput()
     {
         
         move.Enable();
+        if (!isInside)
+        {
+            shoot.Enable();
+            shoot.performed += fireCalled;
+        }
+        else
+        {
+            shoot.Disable();
+        }
+       
         if(!interact.enabled)
             interact.Enable();
     }
@@ -52,7 +70,8 @@ public class PlayerBehaviour : MonoBehaviour
         if (beginConditions != null)
         {
             rb.transform.position = beginConditions.getBeginposition();
-            if (beginConditions.getIsInside()) movementSpeed = movementSpeedInside;
+            isInside = beginConditions.getIsInside();
+            if (isInside) movementSpeed = movementSpeedInside;
             else movementSpeed = movementSpeedOutside;
             animateBegin(beginConditions.getBeginDirection());
         }
@@ -115,6 +134,14 @@ public class PlayerBehaviour : MonoBehaviour
             playerAnimator.SetFloat("X_dir", 0);
         }
         
+    }
+
+    public void fireCalled(InputAction.CallbackContext context)
+    {
+        if (gunHandlerBehaviour != null)
+        {
+            gunHandlerBehaviour.shoot(Vector2.left);
+        }
     }
 
     public bool getInteractive()
