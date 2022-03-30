@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Users;
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class PlayerBehaviour : MonoBehaviour
     public bool interactActive;
     public bool interactOld;
     private bool isInside = false;
+    private bool keyboardUsed;
     private Vector2 facingDirection;
     private Vector2 diagonalFacing;
 
@@ -47,12 +49,14 @@ public class PlayerBehaviour : MonoBehaviour
         move = inputActions.Player.Move;
         interact = inputActions.Player.Interact;
         shoot = inputActions.Player.Fire;
+
     }
 
     public void enableInput()
     {
         
         move.Enable();
+        move.performed += updateControllerType;
         if (!isInside)
         {
             shoot.Enable();
@@ -89,47 +93,61 @@ public class PlayerBehaviour : MonoBehaviour
         playerAnimator.SetFloat("X_dir", 0);
     }
 
-
-    private void FixedUpdate()
+    private void updateControllerType(InputAction.CallbackContext context)
+    {
+        if (context.control.device.ToString().Equals("Keyboard:/Keyboard"))
+        {
+            //keyboard is being used
+            //keyboardUsed = true;
+        }
+        else
+            keyboardUsed = false;
+    }
+    private void movePlayer()
     {
         if (move.enabled)
         {
             Vector2 value = move.ReadValue<Vector2>();
-                goingUp = value.y > 0.1f; //going up when opening doors
+            goingUp = value.y > 0.1f; //going up when opening doors
             goingDown = value.y < -0.1f;//going down through doors
             animate(value);
             rb.velocity = value.normalized * movementSpeed;
 
-            bool xAxis = Mathf.Abs(value.x) > 0.1f;
-            bool yAxis = Mathf.Abs(value.y) > 0.1f;
-            if (xAxis && yAxis)
-            {
-                diagonalLatencyCounter = 0;
-                facingDirection = value;
-                diagonalFacing = value;
-            }
-            else
-            {
-                if (xAxis || yAxis)
+                bool xAxis = Mathf.Abs(value.x) > 0.1f;
+                bool yAxis = Mathf.Abs(value.y) > 0.1f;
+                if (xAxis && yAxis)
                 {
-                    
+                    diagonalLatencyCounter = 0;
                     facingDirection = value;
-                    Debug.Log(facingDirection);
-
+                    diagonalFacing = value;
                 }
                 else
                 {
-                    if(diagonalLatencyCounter < diagonalLatency)
+                    if (xAxis || yAxis)
                     {
-                        //user wanted to stay diagonal
-                        facingDirection = diagonalFacing;
+
+                        facingDirection = value;
+
                     }
+                    else if(keyboardUsed)
+                    {
+                        if (diagonalLatencyCounter < diagonalLatency)
+                        {
+                            //user wanted to stay diagonal
+                            facingDirection = diagonalFacing;
+                        }
+                    }
+                    if (diagonalLatencyCounter < diagonalLatency)
+                        diagonalLatencyCounter++;
                 }
-                if(diagonalLatencyCounter < diagonalLatency)
-                    diagonalLatencyCounter++;
-            }
-           
+
         }
+    }
+
+
+    private void FixedUpdate()
+    {
+        movePlayer();
         
     }
 
@@ -172,7 +190,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (gunHandlerBehaviour != null)
         {
-            gunHandlerBehaviour.shoot(facingDirection);
+            gunHandlerBehaviour.shoot(facingDirection.normalized);
         }
     }
 
@@ -186,4 +204,6 @@ public class PlayerBehaviour : MonoBehaviour
         }
         else return false;
     }
+
+
 }
