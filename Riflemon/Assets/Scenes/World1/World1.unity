@@ -13226,30 +13226,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_Canvasses
       objectReference: {fileID: 0}
-    - target: {fileID: 6104477239112637355, guid: bd85bf49101ed404c9cec54757fa04cc, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6104477239899068343, guid: bd85bf49101ed404c9cec54757fa04cc, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6104477240029995925, guid: bd85bf49101ed404c9cec54757fa04cc, type: 3}
-      propertyPath: m_text
-      value: ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-      objectReference: {fileID: 0}
-    - target: {fileID: 6104477240029995925, guid: bd85bf49101ed404c9cec54757fa04cc, type: 3}
-      propertyPath: m_VerticalAlignment
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 6104477240029995925, guid: bd85bf49101ed404c9cec54757fa04cc, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8346312297847196745, guid: bd85bf49101ed404c9cec54757fa04cc, type: 3}
-      propertyPath: m_Name
-      value: Arrow
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd85bf49101ed404c9cec54757fa04cc, type: 3}
 --- !u!1001 &7303189697411628637

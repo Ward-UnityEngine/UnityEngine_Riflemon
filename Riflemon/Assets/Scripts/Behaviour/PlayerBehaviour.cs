@@ -71,6 +71,16 @@ public class PlayerBehaviour : MonoBehaviour
             interact.Enable();
     }
 
+    public void disableInput()
+    {
+        move.performed -= updateControllerType;
+        shoot.performed -= fireCalled;
+        move.Disable();
+        shoot.Disable();
+        interact.Disable();
+
+    }
+
     private void Start()
     {
         //initiaize begin position

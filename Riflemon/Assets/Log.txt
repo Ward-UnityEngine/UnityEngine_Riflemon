@@ -1,7 +1,8 @@
 ToDo:
 
 Still need to add GunBehaviour to player and figure out how to select the current gun.
-Than the bullets should be able to be instantiated with the gunbehaviour function wantsToShoot
+
+When moving vertically, the horizontal edges of the tiles will be rendered as black lines.
 
 dozen kunt ge kapot maken
 skip menu when first time playing the game and go straight to the intro

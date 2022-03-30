@@ -178,6 +178,17 @@ public class @RiflemonInput : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""c65f9a88-a06b-4ec7-ac50-2e074e1c0935"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""86af048d-331a-4ba5-a60b-8005a276408c"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": ""Press"",
@@ -730,6 +741,17 @@ public class @RiflemonInput : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""OpenCloseMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""be4ca657-ffe8-4b0d-b1ee-eb2841df856f"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""OpenCloseMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false

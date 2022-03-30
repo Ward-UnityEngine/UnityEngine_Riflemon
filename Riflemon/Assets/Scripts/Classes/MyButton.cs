@@ -8,7 +8,7 @@ public class MyButton: MonoBehaviour
 {
     private Color standard_C = new Color32(241, 231, 17,255);
     private Color highlighted_C = new Color32(217, 116, 17,255);
-    public Button button;
+    private Button button;
     private TextMeshProUGUI text;
 
     private void Awake()

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Main_Menu_Listener : MonoBehaviour
 {
@@ -13,15 +14,29 @@ public class Main_Menu_Listener : MonoBehaviour
     public MyButton saveButton;
     public MyButton settingsButton;
     public MyButton quitButton;
+    public MyButton newGameButton;
     private MyButton[] buttons;
     private int activeButton = 0;
 
     private bool buttonPressed = true;
     private bool spacePressed = true;
 
+    private bool buttonsAreSetup = false;
+
     private void Awake()
     {
         inputActions = new RiflemonInput();
+
+        
+    }
+
+    private void OnDisable()
+    {
+        navigate.Disable();
+        submit.Disable();
+        navigate.performed -= navigateMainMenu;
+        submit.performed -= clickOnButton;
+
     }
 
     private void OnEnable()
@@ -34,12 +49,16 @@ public class Main_Menu_Listener : MonoBehaviour
         submit.Enable();
         submit.performed += clickOnButton;
 
+        
+
 
     }
     private void Start()
     {
         initButtons();
-        loadButton.highlight(true);
+        activeButton = 0;
+        buttons[activeButton].highlight(true);
+        //for some fucked up reason in the title scene the button presses trigger twice
     }
 
 
@@ -58,7 +77,10 @@ public class Main_Menu_Listener : MonoBehaviour
         Button.ButtonClickedEvent eventSave = new Button.ButtonClickedEvent();
         eventSave.AddListener(save_clicked);
         saveButton.setOnClick(eventSave);
-        buttons = new MyButton[] { loadButton, saveButton, settingsButton, quitButton };
+        Button.ButtonClickedEvent newGame = new Button.ButtonClickedEvent();
+        newGame.AddListener(new_game_clicked);
+        newGameButton.setOnClick(newGame);
+        buttons = new MyButton[] { newGameButton, loadButton, saveButton, settingsButton, quitButton };
     }
 
     public void load_clicked()
@@ -79,12 +101,13 @@ public class Main_Menu_Listener : MonoBehaviour
         Application.Quit();
     }
 
-
-    private void OnDisable()
+    public void new_game_clicked()
     {
-        navigate.Disable();
-        submit.Disable();
+
+        SceneManager.LoadScene(1);
     }
+
+
 
     private void navigateMainMenu(InputAction.CallbackContext context)
     {
