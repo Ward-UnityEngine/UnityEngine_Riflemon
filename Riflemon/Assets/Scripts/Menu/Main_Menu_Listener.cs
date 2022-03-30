@@ -100,8 +100,8 @@ public class Main_Menu_Listener : MonoBehaviour
 
     public void new_game_clicked()
     {
-
-        SceneManager.LoadScene(1);
+        Time.timeScale = 1;
+        Game_Manager.loadScene(new BeginConditions(new Vector2(1.12f, 1.72f),new Vector2(1,0), true),4);
     }
 
 
