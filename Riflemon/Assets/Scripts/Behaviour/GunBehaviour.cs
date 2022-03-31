@@ -11,6 +11,14 @@ public class GunBehaviour : MonoBehaviour
     public float bulletSpeed;
     public GameObject bullet;
     private System.DateTime timeStamp;
+    private Rigidbody2D playerRB;
+    private Transform offSetTranform;
+
+    private void Awake()
+    {
+        playerRB = FindObjectOfType<PlayerBehaviour>().GetComponent<Rigidbody2D>();
+        offSetTranform = transform.parent.GetComponentInChildren<SpawnPoint>().transform;
+    }
 
     public void wantsToShoot(Vector2 direction)
     {
@@ -26,7 +34,7 @@ public class GunBehaviour : MonoBehaviour
     {
         GameObject newBullet = Instantiate(bullet, getGunSpawnPoint(direction), Quaternion.Euler( getRotation(direction)));
         newBullet.GetComponent<BulletBehaviour>().setUp(timeToLive, damagePerBullet);
-        newBullet.GetComponent<Rigidbody2D>().velocity = direction.normalized * bulletSpeed;
+        newBullet.GetComponent<Rigidbody2D>().velocity = direction.normalized * bulletSpeed + playerRB.velocity;
     }
 
     private Vector3 getRotation(Vector2 direction)
@@ -38,7 +46,8 @@ public class GunBehaviour : MonoBehaviour
 
     private Vector3 getGunSpawnPoint(Vector2 direction)
     {
-        return new Vector3(this.transform.position.x + direction.x, this.transform.position.y + direction.y, 0);
+        
+        return new Vector3(this.transform.position.x + offSetTranform.localPosition.x*Math.Sign(direction.x), this.transform.position.y+offSetTranform.localPosition.y, 0);
     }
 
 

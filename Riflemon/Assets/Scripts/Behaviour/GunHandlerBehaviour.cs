@@ -6,7 +6,6 @@ public class GunHandlerBehaviour : MonoBehaviour
 {
     private GunBehaviour[] gunBehaviours;
     private int activeGun = 0;
-
    
 
     private void Awake()
@@ -34,7 +33,7 @@ public class GunHandlerBehaviour : MonoBehaviour
 
     private void Start()
     {
-        disableGuns(0);
+        disableGuns(1);
     }
 
    
