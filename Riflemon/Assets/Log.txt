@@ -1,6 +1,7 @@
 ToDo:
 
-Still need to add GunBehaviour to player and figure out how to select the current gun.
+When pressing a direction, this should be the direction the player is facing and this should not be determined by the speed.
+
 
 When moving vertically, the horizontal edges of the tiles will be rendered as black lines.
 
