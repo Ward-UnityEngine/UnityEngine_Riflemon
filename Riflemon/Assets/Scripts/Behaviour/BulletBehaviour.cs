@@ -5,8 +5,14 @@ using UnityEngine;
 public class BulletBehaviour : MonoBehaviour
 {
     private float bulletDamage;
+    private Rigidbody2D rb;
 
-    
+    private void OnEnable()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+
 
     public void setUp(float timeToLive,float bulletDamage)
     {
@@ -22,8 +28,12 @@ public class BulletBehaviour : MonoBehaviour
         {
             otherCol.GetComponent<HealthBehaviour>().bulletHit(bulletDamage);
         }
-        GameObject.Destroy(this.gameObject);
+        Invoke("liveDestroy", 1);
+        rb.drag = 3; //makes the bullet slow down after it has hit the wall
+        this.transform.Rotate(0, 0, 180);
     }
+
+    
 
     private void liveDestroy()
     {

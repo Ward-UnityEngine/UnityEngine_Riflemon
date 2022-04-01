@@ -105,13 +105,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void updateControllerType(InputAction.CallbackContext context)
     {
-        if (context.control.device.ToString().Equals("Keyboard:/Keyboard"))
-        {
-            //keyboard is being used
-            keyboardUsed = true;
-        }
-        else
-            keyboardUsed = false;
+        keyboardUsed = context.control.device.ToString().Equals("Keyboard:/Keyboard");
     }
     private void movePlayer()
     {
