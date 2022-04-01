@@ -173,7 +173,7 @@ MonoBehaviour:
   interactOld: 0
   movementSpeedOutside: 6
   movementSpeedInside: 4
-  diagonalLatency: 4
+  diagonalLatency: 8
 --- !u!114 &331556182613950613
 MonoBehaviour:
   m_ObjectHideFlags: 0

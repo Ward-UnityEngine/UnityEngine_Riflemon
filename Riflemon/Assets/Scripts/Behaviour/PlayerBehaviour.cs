@@ -108,7 +108,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (context.control.device.ToString().Equals("Keyboard:/Keyboard"))
         {
             //keyboard is being used
-            //keyboardUsed = true;
+            keyboardUsed = true;
         }
         else
             keyboardUsed = false;
@@ -120,36 +120,37 @@ public class PlayerBehaviour : MonoBehaviour
             Vector2 value = move.ReadValue<Vector2>();
             goingUp = value.y > 0.1f; //going up when opening doors
             goingDown = value.y < -0.1f;//going down through doors
-            animate(value);
+            
             rb.velocity = value.normalized * movementSpeed;
 
-                bool xAxis = Mathf.Abs(value.x) > 0.1f;
-                bool yAxis = Mathf.Abs(value.y) > 0.1f;
-                if (xAxis && yAxis)
+            bool xAxisPressed = Mathf.Abs(value.x) > 0.1f;
+            bool yAxisPressed = Mathf.Abs(value.y) > 0.1f;
+            animate(value,xAxisPressed,yAxisPressed);
+            if (xAxisPressed && yAxisPressed)
+            {
+                diagonalLatencyCounter = 0;
+                facingDirection = value;
+                diagonalFacing = value;
+            }
+            else
+            {
+                if (xAxisPressed || yAxisPressed)
                 {
-                    diagonalLatencyCounter = 0;
+
                     facingDirection = value;
-                    diagonalFacing = value;
+
                 }
-                else
+                else if(keyboardUsed)
                 {
-                    if (xAxis || yAxis)
-                    {
-
-                        facingDirection = value;
-
-                    }
-                    else if(keyboardUsed)
-                    {
-                        if (diagonalLatencyCounter < diagonalLatency)
-                        {
-                            //user wanted to stay diagonal
-                            facingDirection = diagonalFacing;
-                        }
-                    }
                     if (diagonalLatencyCounter < diagonalLatency)
-                        diagonalLatencyCounter++;
+                    {
+                        //user wanted to stay diagonal
+                        facingDirection = diagonalFacing;
+                    }
                 }
+                if (diagonalLatencyCounter < diagonalLatency)
+                    diagonalLatencyCounter++;
+            }
 
         }
     }
@@ -177,7 +178,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
-    private void animate(Vector2 dir)
+    private void animate(Vector2 dir,bool xAxisPressed,bool yAxisPressed)
     {
         playerAnimator.SetFloat("Speed", rb.velocity.magnitude);
 
@@ -193,6 +194,9 @@ public class PlayerBehaviour : MonoBehaviour
             playerAnimator.SetFloat("Y_dir", dir.y);
             playerAnimator.SetFloat("X_dir", 0);
         }
+        playerAnimator.SetFloat("X_last", facingDirection.x);
+        playerAnimator.SetFloat("Y_last", facingDirection.y);
+        
         
     }
 
